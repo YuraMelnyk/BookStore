@@ -7,6 +7,7 @@ using Ninject;
 using System.Web.Mvc;
 using Domain.Abstract;
 using Domain.Entities;
+using Domain.Concrete;
 
 namespace WebStoreUI.Infrastructure
 {
@@ -32,14 +33,7 @@ namespace WebStoreUI.Infrastructure
 
         private void AddBindings()
         {
-
-            Mock<IBookRepository> mock = new Mock<Domain.Abstract.IBookRepository>();
-            mock.Setup(m => m.Books).Returns(new List<Book>
-    {
-        new Book { Name = "Witcher", Price = 200 },
-        new Book { Name = "Clear Code", Price=300 },
-    });
-            kernel.Bind<IBookRepository>().ToConstant(mock.Object);
+            kernel.Bind<IBookRepository>().To<EFBookRepository>();
         }
     }
 }

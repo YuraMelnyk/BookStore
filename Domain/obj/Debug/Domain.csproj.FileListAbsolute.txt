@@ -16,3 +16,9 @@ D:\Programming\projects\BookStore\Domain\bin\Debug\System.Web.WebPages.Razor.xml
 D:\Programming\projects\BookStore\Domain\obj\Debug\Domain.csproj.CopyComplete
 D:\Programming\projects\BookStore\Domain\obj\Debug\Domain.dll
 D:\Programming\projects\BookStore\Domain\obj\Debug\Domain.pdb
+D:\Programming\projects\BookStore\Domain\bin\Debug\Domain.dll.config
+D:\Programming\projects\BookStore\Domain\bin\Debug\EntityFramework.dll
+D:\Programming\projects\BookStore\Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\Programming\projects\BookStore\Domain\bin\Debug\EntityFramework.xml
+D:\Programming\projects\BookStore\Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\Programming\projects\BookStore\Domain\obj\Debug\Domain.csprojAssemblyReference.cache

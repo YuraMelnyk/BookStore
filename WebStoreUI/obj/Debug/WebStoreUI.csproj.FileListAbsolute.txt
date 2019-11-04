@@ -87,3 +87,8 @@ D:\Programming\projects\BookStore\WebStoreUI\obj\Debug\WebStoreUI.csprojAssembly
 D:\Programming\projects\BookStore\WebStoreUI\obj\Debug\WebStoreUI.csproj.CopyComplete
 D:\Programming\projects\BookStore\WebStoreUI\obj\Debug\WebStoreUI.dll
 D:\Programming\projects\BookStore\WebStoreUI\obj\Debug\WebStoreUI.pdb
+D:\Programming\projects\BookStore\WebStoreUI\bin\EntityFramework.dll
+D:\Programming\projects\BookStore\WebStoreUI\bin\EntityFramework.SqlServer.dll
+D:\Programming\projects\BookStore\WebStoreUI\bin\Domain.dll.config
+D:\Programming\projects\BookStore\WebStoreUI\bin\EntityFramework.xml
+D:\Programming\projects\BookStore\WebStoreUI\bin\EntityFramework.SqlServer.xml
