@@ -1,5 +1,6 @@
-﻿@using Domain.Entities
-@model IEnumerable<Book>
+﻿@using WebStoreUI.Models
+@using WebStoreUI.HTMLHelpers
+@model BooksListViewModel
 
 
 
@@ -8,7 +9,7 @@
     ViewBag.Title = "Books";
 }
 
-@foreach (var p in @Model)
+@foreach (var p in @Model.Books)
 {
     <div>
         <h3>@p.Name</h3>
@@ -18,5 +19,9 @@
         <h4>@p.Price.ToString("# $")</h4>
     </div>
 }
+
+<div>
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { Page = x }))
+</div>
 
 
