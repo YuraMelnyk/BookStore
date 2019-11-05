@@ -45,5 +45,22 @@ namespace WebStoreUI.Controllers
                 return View(book);
             }
         }
+
+        public ViewResult Create()
+        {
+            return View("Edit", new Book());
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int bookId)
+        {
+            Book deletedBook = repository.DeleteBook(bookId);
+            if (deletedBook != null)
+            {
+                TempData["message"] = string.Format("Book \"{0}\" was deleted.",
+                    deletedBook.Name);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

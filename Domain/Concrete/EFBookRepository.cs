@@ -34,5 +34,16 @@ namespace Domain.Concrete
             }
             context.SaveChanges();
         }
+
+        public Book DeleteBook(int bookId)
+        {
+            Book dbEntry = context.Books.Find(bookId);
+            if (dbEntry != null)
+            {
+                context.Books.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
     }
 }
