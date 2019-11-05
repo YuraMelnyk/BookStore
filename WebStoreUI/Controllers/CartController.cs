@@ -13,53 +13,72 @@ namespace WebStoreUI.Controllers
     {
         // GET: Cart
         private IBookRepository repository;
-        public CartController(IBookRepository repo)
+        private IOrderProcessor orderProcessor;
+        public CartController(IBookRepository repo, IOrderProcessor processor)
         {
             repository = repo;
+            orderProcessor = processor;
         }
-
-        public ViewResult Index(string returnUrl)
+       
+        public ViewResult Index(Cart cart, string returnUrl)
         {
             return View(new CartIndexViewModel
             {
-                Cart = GetCart(),
+                Cart = cart,
                 ReturnUrl = returnUrl
             });
         }
 
-        public RedirectToRouteResult AddToCart(int bookId, string returnUrl)
+        public RedirectToRouteResult AddToCart(Cart cart, int bookId, string returnUrl)
         {
             Book book = repository.Books
                 .FirstOrDefault(b => b.BookId == bookId);
 
             if (book != null)
             {
-                GetCart().AddItem(book, 1);
+                cart.AddItem(book, 1);
             }
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        public RedirectToRouteResult RemoveFromCart(int bookId, string returnUrl)
+        public RedirectToRouteResult RemoveFromCart(Cart cart, int bookId, string returnUrl)
         {
             Book book = repository.Books
                 .FirstOrDefault(b => b.BookId == bookId);
 
             if (book != null)
             {
-                GetCart().RemoveLine(book);
+                cart.RemoveLine(book);
             }
             return RedirectToAction("Index", new { returnUrl });
         }
-
-        public Cart GetCart()
+        public PartialViewResult Summary(Cart cart)
         {
-            Cart cart = (Cart)Session["Cart"];
-            if (cart == null)
+            return PartialView(cart);
+        }
+        public ViewResult Checkout()
+        {
+            return View(new ShippingDetails());
+        }
+
+        [HttpPost]
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        {
+            if (cart.Lines.Count() == 0)
             {
-                cart = new Cart();
-                Session["Cart"] = cart;
+                ModelState.AddModelError("", "Sorry. Your cart is empty!");
             }
-            return cart;
+
+            if (ModelState.IsValid)
+            {
+                orderProcessor.ProcessOrder(cart, shippingDetails);
+                cart.Clear();
+                return View("Completed");
+            }
+            else
+            {
+                return View(shippingDetails);
+            }
         }
     }
 }

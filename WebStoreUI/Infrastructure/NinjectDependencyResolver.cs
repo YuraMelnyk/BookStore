@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Domain.Abstract;
 using Domain.Entities;
 using Domain.Concrete;
+using System.Configuration;
 
 namespace WebStoreUI.Infrastructure
 {
@@ -34,6 +35,15 @@ namespace WebStoreUI.Infrastructure
         private void AddBindings()
         {
             kernel.Bind<IBookRepository>().To<EFBookRepository>();
+
+            EmailSettings emailSettings = new EmailSettings
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager
+                    .AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+
+            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
+                .WithConstructorArgument("settings", emailSettings);
         }
     }
 }
