@@ -24,22 +24,26 @@ namespace WebStoreUI.Controllers
         //    return View();
         //}
 
-        public ViewResult List(int page = 1)
+        public ViewResult List(string category, int page = 1)
         {
             //return View(repository.Books.OrderBy(book => book.BookId).Skip((page - 1) * pageSize).Take(pageSize));
 
             BooksListViewModel model = new BooksListViewModel
             {
                 Books = repository.Books
-                    .OrderBy(game => game.BookId)
+                    .Where(p => category == null || p.Category == category)
+                    .OrderBy(book => book.BookId)
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
                     ItemsPerPage = pageSize,
-                    TotalItems = repository.Books.Count()
-                }
+                    TotalItems = category == null ?
+                    repository.Books.Count() :
+                    repository.Books.Where(book =>book.Category == category).Count()
+                },
+                CurrentCategory = category
             };
             return View(model);
         }

@@ -144,13 +144,16 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HTMLHelpers\PagingHelper.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\BooksListViewModel.cs" />
+    <Compile Include="Models\CartIndexViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -195,6 +198,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Book\List.cshtml" />
     <Content Include="Views\Shared\BookSummary.cshtml" />
+    <Content Include="Views\Nav\Menu.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
