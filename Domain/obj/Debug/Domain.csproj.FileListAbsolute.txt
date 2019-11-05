@@ -21,3 +21,4 @@ D:\Programming\projects\BookStore\Domain\bin\Debug\EntityFramework.dll
 D:\Programming\projects\BookStore\Domain\bin\Debug\EntityFramework.SqlServer.dll
 D:\Programming\projects\BookStore\Domain\bin\Debug\EntityFramework.xml
 D:\Programming\projects\BookStore\Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\Programming\projects\BookStore\Domain\obj\Debug\Domain.csprojAssemblyReference.cache

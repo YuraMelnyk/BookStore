@@ -16,5 +16,23 @@ namespace Domain.Concrete
         {
             get { return context.Books; }
         }
+
+        public void SaveBook(Book book)
+        {
+            if (book.BookId == 0)
+                context.Books.Add(book);
+            else
+            {
+                Book dbEntry = context.Books.Find(book.BookId);
+                if (dbEntry != null)
+                {
+                    dbEntry.Name = book.Name;
+                    dbEntry.Description = book.Description;
+                    dbEntry.Price = book.Price;
+                    dbEntry.Category = book.Category;
+                }
+            }
+            context.SaveChanges();
+        }
     }
 }
