@@ -1,0 +1,16 @@
+X-Sender: bookstore@example.com
+X-Receiver: orders@example.com
+MIME-Version: 1.0
+From: bookstore@example.com
+To: orders@example.com
+Date: 6 Nov 2019 01:09:36 +0200
+Subject: New order shipped!
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: base64
+
+TmV3IG9yZGVyIHByb2Nlc3NlZA0KLS0tDQpCb29rczoNCjEgeCBUaGUgTmlnaHQgRmly
+ZSAoVG90YWw6IDE3LDAwIOKCtDEgeCBUaGUgR3VhcmRpYW5zOiBBIE5vdmVsIChUb3Rh
+bDogMTUsMDAg4oK0VG90YWwgY29zdDogMzIsMDAg4oK0LS0tDQpEZWxpdmVyeTogDQpZ
+dXJpaSBNZWxueWsNCtCU0LDQvdC40LvQsCDQk9Cw0LvQuNGG0YzQutC+0LPQviA2OQ0K
+MTYNCg0K0J/RltC00LLQvtC70L7Rh9C40YHRjNC6DQrQo9C60YDQsNGX0L3QsA0KLS0t
+DQpHaWZ0IHdyYXA6IFllcw==
